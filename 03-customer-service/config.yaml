@@ -1,0 +1,91 @@
+# Customer Service Bot Configuration
+
+escalation:
+  # Bot tier: Handle common queries instantly (Free)
+  bot_min_confidence: 0.7
+  bot_max_stakes: 0.4
+
+  # Brain tier: Local LLM for novel but non-critical (Low cost)
+  brain_min_confidence: 0.5
+  brain_max_stakes: 0.7
+
+  # Human tier: API LLM for complex/critical (High cost)
+  high_stakes_threshold: 0.7
+  critical_stakes_threshold: 0.9
+
+  # Time constraints
+  urgent_time_ms: 1000
+  critical_time_ms: 500
+
+memory:
+  # Memory limits
+  max_working_memories: 20
+  max_mid_term_memories: 100
+  max_episodic_memories: 500
+
+  # Customer memory settings
+  track_customer_history: true
+  customer_memory_days: 365
+  importance_decay_rate: 0.99
+
+cost_tracking:
+  # Cost per decision (USD)
+  bot_cost: 0.0
+  brain_cost: 0.001
+  human_cost: 0.02
+
+  # Budget alerts
+  daily_budget: 100.0
+  alert_threshold: 80.0
+
+# Sentiment analysis settings
+sentiment:
+  # Weights for escalation based on sentiment
+  negative_escalation_boost: 0.2
+  positive_keep_lower: -0.1
+
+  # Keywords that trigger higher stakes
+  critical_keywords:
+    - lawsuit
+    - legal
+    - fraud
+    - scam
+    - cancel.*account
+    - speak.*manager
+    - terrible
+    - horrible
+    - unacceptable
+
+  # Keywords that indicate simple requests
+  simple_keywords:
+    - question
+    - how to
+    - where is
+    - help with
+    - information
+
+# Customer tiers
+customer_tiers:
+  # VIP customers get faster escalation
+  vip_stakes_boost: 0.1
+
+  # Enterprise customers always get human review
+  enterprise_always_human: false
+  enterprise_stakes_boost: 0.15
+
+# Response templates
+response_templates:
+  escalation_message: |
+    I understand your concern and want to make sure this is handled properly.
+    Let me connect you with a specialist who can better assist with this matter.
+
+  hold_message: |
+    Thank you for your patience. I'm looking into this for you and will
+    get back to you shortly with a resolution.
+
+# LLM settings
+llm:
+  provider: "mock"
+  model: "gpt-4"
+  temperature: 0.7
+  max_tokens: 300

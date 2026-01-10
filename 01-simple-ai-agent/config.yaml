@@ -1,0 +1,48 @@
+# Simple AI Agent Configuration
+
+escalation:
+  # Minimum confidence for Bot-level decisions
+  bot_min_confidence: 0.7
+
+  # Minimum confidence for Brain-level decisions
+  brain_min_confidence: 0.5
+
+  # Stakes threshold that triggers escalation
+  high_stakes_threshold: 0.7
+  critical_stakes_threshold: 0.9
+
+  # Time thresholds (milliseconds)
+  urgent_time_ms: 500
+  critical_time_ms: 100
+
+memory:
+  # Maximum memories per tier
+  max_working_memories: 10
+  max_mid_term_memories: 50
+  max_episodic_memories: 100
+
+  # Decay rate for recency scoring
+  recency_decay_rate: 0.995
+
+  # Importance threshold for consolidation
+  reflection_threshold: 150.0
+  consolidation_window_hours: 24
+
+llm:
+  # Provider: mock, openai, anthropic, ollama
+  provider: "mock"
+  model: "gpt-4"
+  temperature: 0.7
+  max_tokens: 300
+
+  # Latency simulation (milliseconds)
+  latency_range: [100, 400]
+
+agent:
+  # Agent personality
+  name: "Agent"
+  personality: "helpful, friendly, and concise"
+
+  # Learning settings
+  learn_from_interactions: true
+  auto_consolidate: true

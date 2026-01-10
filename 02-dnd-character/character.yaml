@@ -1,0 +1,124 @@
+# D&D Character Configuration
+
+character:
+  name: "Theron Blackwood"
+  race: "Human"
+  class: "Fighter"
+  level: 5
+
+  # Ability scores (3-18)
+  stats:
+    strength: 16
+    dexterity: 12
+    constitution: 14
+    intelligence: 10
+    wisdom: 13
+    charisma: 14
+
+  # Personality traits (0.0 - 1.0)
+  personality:
+    openness: 0.6      # Willingness to try new things
+    conscientiousness: 0.8  # Careful, diligent
+    extraversion: 0.7   # Social, outgoing
+    agreeableness: 0.6  # Cooperative, friendly
+    neuroticism: 0.3    # Confident, stable
+
+  # Alignment (D&D 5e)
+  alignment: "Neutral Good"
+
+  # Background and goals
+  background: "Soldier"
+  backstory: |
+    A former soldier who served with distinction in the Last War.
+    Now seeks adventure and purpose, driven by a desire to protect
+    the innocent and hone martial prowess.
+
+  goals:
+    - "Master a legendary weapon"
+    - "Find a worthy cause to fight for"
+    - "Uncover the truth about a mysterious past battle"
+
+# Decision preferences by class
+class_preferences:
+  Fighter:
+    # Prefer quick, decisive action in combat
+    combat_urgency_ms: 500
+    combat_decision_threshold: 0.6  # Willing to fight
+
+    # Strong sense of duty
+    stakes_modifiers:
+      protecting_allies: 0.3
+      honor: 0.2
+      civilian_safety: 0.2
+
+    # Decision patterns
+    aggressive_bias: 0.7
+    caution_bias: 0.3
+
+  Rogue:
+    # Prefer stealth and surprise
+    combat_urgency_ms: 2000
+    combat_decision_threshold: 0.4  # Avoids fair fights
+
+    # Self-interested but loyal
+    stakes_modifiers:
+      personal_gain: 0.3
+      party_survival: 0.2
+      stealth_opportunity: 0.2
+
+    # Decision patterns
+    aggressive_bias: 0.3
+    caution_bias: 0.8
+
+  Wizard:
+    # Prefer preparation and study
+    combat_urgency_ms: 5000
+    combat_decision_threshold: 0.5  # Tactical
+
+    # Knowledge-seeking
+    stakes_modifiers:
+      discovery: 0.3
+      magical_knowledge: 0.2
+      solving_mysteries: 0.2
+
+    # Decision patterns
+    aggressive_bias: 0.4
+    caution_bias: 0.6
+
+# Memory configuration
+memory:
+  # Remember these types of events
+  track_npcs: true
+  track_locations: true
+  track_combat: true
+  track_loot: true
+  track_quests: true
+
+  # Importance weights
+  importance_weights:
+    combat_victory: 8.0
+    combat_defeat: 9.0
+    npc_first_meeting: 6.0
+    quest_complete: 8.0
+    rare_loot: 7.0
+    character_death: 10.0
+
+# Escalation configuration
+escalation:
+  # Combat decisions need to be fast
+  combat:
+    bot_min_confidence: 0.5
+    brain_min_confidence: 0.4
+    urgent_time_ms: 500
+
+  # Social decisions can be slower
+  social:
+    bot_min_confidence: 0.7
+    brain_min_confidence: 0.5
+    urgent_time_ms: 2000
+
+  # Exploration decisions
+  exploration:
+    bot_min_confidence: 0.6
+    brain_min_confidence: 0.4
+    urgent_time_ms: 1000

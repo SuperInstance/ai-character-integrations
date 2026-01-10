@@ -1,0 +1,89 @@
+# Learning Loop Configuration
+
+# Experience collection
+collection:
+  # What to collect
+  collect_decisions: true
+  collect_outcomes: true
+  collect_context: true
+  collect_responses: true
+
+  # Storage limits
+  max_experiences: 10000
+  max_episodic_memories: 500
+
+  # Sampling
+  sampling_rate: 1.0  # Collect all experiences
+  importance_threshold: 4.0  # Minimum importance to store
+
+# Experience replay
+replay:
+  # Replay strategy
+  strategy: "prioritized"  # random, prioritized, recent
+
+  # Batch size for replay
+  batch_size: 32
+
+  # Replay frequency
+  replay_interval: 10  # Experiences between replays
+
+  # Prioritization weights
+  priority_weights:
+    recency: 0.3
+    importance: 0.4
+    novelty: 0.2
+    failure: 0.1
+
+# Consolidation settings
+consolidation:
+  # When to consolidate
+  auto_consolidate: true
+  min_experiences_for_consolidation: 20
+
+  # Consolidation strategies
+  strategies:
+    - reflection
+    - episodic_semantic
+    - cluster
+
+  # Output limits
+  max_semantic_patterns: 100
+  min_pattern_confidence: 0.7
+
+# Learning parameters
+learning:
+  # Learning rate for threshold updates
+  learning_rate: 0.1
+
+  # Adaptive thresholds
+  adapt_bot_threshold: true
+  adapt_brain_threshold: true
+
+  # Performance targets
+  target_success_rate: 0.85
+  min_sample_size: 50
+
+# Evaluation
+evaluation:
+  # Metrics to track
+  metrics:
+    - success_rate
+    - avg_confidence
+    - cost_per_decision
+    - response_time
+
+  # Evaluation frequency
+  evaluate_every: 25  # Experiences
+
+  # Performance windows
+  short_window: 10
+  long_window: 100
+
+# Output settings
+output:
+  save_checkpoints: true
+  checkpoint_interval: 100
+  checkpoint_dir: "./checkpoints"
+
+  generate_reports: true
+  report_format: "text"  # text, json, html

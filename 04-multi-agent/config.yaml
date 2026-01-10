@@ -1,0 +1,77 @@
+# Multi-Agent Team Configuration
+
+# Agent settings
+agents:
+  coordinator:
+    personality:
+      openness: 0.6
+      conscientiousness: 0.9
+      extraversion: 0.7
+      agreeableness: 0.6
+      neuroticism: 0.2
+
+  researcher:
+    personality:
+      openness: 0.9
+      conscientiousness: 0.8
+      extraversion: 0.4
+      agreeableness: 0.6
+      neuroticism: 0.3
+
+  planner:
+    personality:
+      openness: 0.5
+      conscientiousness: 0.95
+      extraversion: 0.3
+      agreeableness: 0.7
+      neuroticism: 0.4
+
+  executor:
+    personality:
+      openness: 0.4
+      conscientiousness: 0.85
+      extraversion: 0.6
+      agreeableness: 0.5
+      neuroticism: 0.3
+
+  reviewer:
+    personality:
+      openness: 0.6
+      conscientiousness: 0.95
+      extraversion: 0.3
+      agreeableness: 0.6
+      neuroticism: 0.5
+
+# Task delegation settings
+delegation:
+  # Minimum confidence to assign without coordinator approval
+  auto_assign_threshold: 0.7
+
+  # Maximum effort before requiring breakdown
+  max_single_agent_effort: 5.0
+
+  # Parallel execution allowed
+  allow_parallel: true
+
+# Communication settings
+communication:
+  # Message persistence
+  store_messages: true
+
+  # Broadcast important events
+  broadcast_completions: true
+
+  # Collaboration style
+  collaboration_style: "hierarchical"  # hierarchical, flat, dynamic
+
+# Shared memory settings
+shared_memory:
+  enabled: true
+  sync_interval: 5  # seconds
+  conflict_resolution: "most_recent"  # most_recent, merge, manual
+
+# Performance tracking
+performance:
+  track_agent_utilization: true
+  track_task_completion_time: true
+  track_delegation_efficiency: true
