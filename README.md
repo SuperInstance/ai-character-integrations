@@ -1,5 +1,15 @@
 # WebSocket Fabric - Integration Examples
 
+
+## Meta
+
+**Domain:** other
+**Depends on:** —
+**Depended by:** —
+**Implements:** Comprehensive integration examples for AI Character SDK and related tools
+**Related:** —
+
+
 Comprehensive integration examples demonstrating how to combine the standalone tools from the WebSocket Fabric ecosystem.
 
 ## Available Tools
